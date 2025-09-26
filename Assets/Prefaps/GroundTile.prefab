@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 741950297601055268}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 9.5}
+  m_LocalPosition: {x: 0, y: 0.75, z: 9.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -162,7 +162,7 @@ Transform:
   m_GameObject: {fileID: 4105007741602059700}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: 0.5, z: 9.5}
+  m_LocalPosition: {x: -3, y: 0.75, z: 9.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -193,7 +193,7 @@ Transform:
   m_GameObject: {fileID: 6661543935995639864}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: 0.5, z: 9.5}
+  m_LocalPosition: {x: 3, y: 0.75, z: 9.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -270,7 +270,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8410cce91523764882926aaee7e3d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefab: {fileID: 3886341538354253731, guid: 4b382e82ab4ff01409100d14d94fcbb1, type: 3}
+  obstaclePrefab1: {fileID: 1520560967821298653, guid: 6a8759cd0bcc9574ebde3c4856ae2752, type: 3}
+  obstaclePrefab2: {fileID: 196712982348745447, guid: e6ab97f78b5d7d34aa26aaa77dc4127c, type: 3}
+  coinPrefab: {fileID: 7201504657081279071, guid: 0fa35ff162d0184429565f8ff76c57d3, type: 3}
 --- !u!1 &8810819544005532092
 GameObject:
   m_ObjectHideFlags: 0
