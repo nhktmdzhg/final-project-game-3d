@@ -10,6 +10,7 @@ public class Ground : MonoBehaviour
     private void Start()
     {
         groundController = GameObject.FindObjectOfType<GroundController>();
+        SpawnObstacle();
     }
     private void OnTriggerExit(Collider other)
     {
@@ -20,5 +21,13 @@ public class Ground : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public GameObject obstaclePrefab;
+    public void SpawnObstacle()
+    {
+        int randomIndex = Random.Range(2, 5);
+        Transform spawnPoint = transform.GetChild(randomIndex).transform;
+        Instantiate(obstaclePrefab, spawnPoint.position, Quaternion.identity, transform);
     }
 }
