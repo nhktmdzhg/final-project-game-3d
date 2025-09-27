@@ -1,4 +1,7 @@
+using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
@@ -14,7 +17,8 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     public float speedIncreasePerPoint = 0.1f;
     [SerializeField] LayerMask groundMask;
-
+    [SerializeField] Canvas cooldownCanvas;
+    TextMeshProUGUI cooldownText;
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -37,13 +41,7 @@ public class PlayerController : MonoBehaviour
         {
             newPos.x = oldPos.x;
         }
-        rb.MovePosition(newPos);
-
-        if (Input.GetKeyDown(KeyCode.Space) && CanJump())
-        {
-            Jump();
-        }
-        speed += 0.001f;
+        rb.MovePosition(newPos);        
     }
 
     public void Dead()
@@ -66,5 +64,21 @@ public class PlayerController : MonoBehaviour
     {
         lastJumpTime = Time.time;
         rb.AddForce(Vector3.up * jumpForce);
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && CanJump())
+        {
+            Jump();
+        }
+        if (!CanJump())
+        {
+            cooldownCanvas.gameObject.SetActive(true);
+            cooldownText = cooldownCanvas.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            cooldownText.text = "COOLDOWN: " + (jumpCooldown - (Time.time - lastJumpTime)).ToString("F1") + "s";
+        }
+        else { cooldownCanvas.gameObject.SetActive(false); }
+        speed += 0.001f;
     }
 }
