@@ -46,7 +46,7 @@ In HYPER RUSH, players experience the thrill of an endless running adventure thr
 - **Ground Generation**: Infinite tile spawning with automatic cleanup
 - **Game Management**: Singleton pattern for centralized game state
 - **Camera System**: Third-person follow camera for optimal gameplay view
-- **Scene Management**: Menu navigation and game restart functionality
+- **Scene Management**: Menu navigation, game restart, and back navigation with proper cleanup
 
 ## Applications & Use Cases
 
@@ -90,6 +90,7 @@ In HYPER RUSH, players experience the thrill of an endless running adventure thr
 - Avoid obstacles by moving horizontally or jumping
 - Collect coins to increase score and speed
 - Game ends when hitting an obstacle
+- Use back button to return to main menu anytime
 
 ## Resource References
 
