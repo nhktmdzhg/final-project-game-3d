@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI coinText;
     [SerializeField] Canvas gameOverUI;
     [SerializeField] PlayerController playerController;
+    [SerializeField] Canvas backMenuUI;
+    private bool isPaused = false;
 
     public void IncrementCoin()
     {
@@ -48,6 +50,30 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+    }
+
+    void PauseGame()
+    {
+        isPaused = true;
+        backMenuUI.gameObject.SetActive(true);
+        Time.timeScale = 0f; // Pause the game
+    }
+
+    void ResumeGame()
+    {
+        isPaused = false;
+        backMenuUI.gameObject.SetActive(false);
+        Time.timeScale = 1f; // Resume the game
     }
 }
