@@ -10,11 +10,13 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public TextMeshProUGUI coinText;
+    PlayerController playerController;
 
     public void IncrementCoin()
     {
         IncreaseCoin(1);
         coinText.text = "COIN: " + coin.ToString();
+        playerController.speed += 0.1f;
     }
 
     private void Awake()
@@ -34,7 +36,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerController = GameObject.FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
