@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class GroundController : MonoBehaviour
 {
-    public GameObject groundTile;
+    [SerializeField] GameObject groundTile;
     Vector3 nextSpawnPosition;
 
-    public void SpawnGround ()
+    public void SpawnGround (bool spawnObject)
     {
         GameObject temp = Instantiate(groundTile, nextSpawnPosition, Quaternion.identity);
         nextSpawnPosition = temp.transform.GetChild(1).transform.position;
+
+        if (spawnObject)
+        {
+            temp.GetComponent<Ground>().SpawnObstacle();
+            temp.GetComponent<Ground>().SpawnCoin();
+        }
     }
 
     // Start is called before the first frame update
@@ -18,7 +24,15 @@ public class GroundController : MonoBehaviour
     {
         for (int i = 0; i < 20; i++)
         {
-            SpawnGround();
+            if (i < 5)
+            {
+                SpawnGround(false);
+            }
+            else
+            {
+                SpawnGround(true);
+            }
+            
         }
     }
     

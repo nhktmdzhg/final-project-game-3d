@@ -16,6 +16,7 @@ public class Obstacle : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerController.Dead();
+            GameManager.instance.GameOver();
         }
     }
 

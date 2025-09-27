@@ -6,10 +6,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5;
-    public Rigidbody rb;
+    [SerializeField] Rigidbody rb;
     float inputHorizontal;
     private bool alive = true;
     private Animator anim;
+    public float speedIncreasePerPoint = 0.02f;
 
     private void Start()
     {
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     public void Dead()
     {
-        alive = false;
+        alive = false;        
     }
 
     public void Alive()

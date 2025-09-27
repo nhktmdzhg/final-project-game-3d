@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform player;
+    [SerializeField] Transform player;
     Vector3 offsetCamera;
     void Start()
     {

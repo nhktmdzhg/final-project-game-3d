@@ -11,12 +11,12 @@ public class Ground : MonoBehaviour
     private void Start()
     {
         groundController = GameObject.FindObjectOfType<GroundController>();
-        SpawnObstacle();
-        SpawnCoin();
+        //SpawnObstacle();
+        //SpawnCoin();
     }
     private void OnTriggerExit(Collider other)
     {
-        groundController.SpawnGround();
+        groundController.SpawnGround(true);
         Destroy(gameObject, 2);
     }
     // Update is called once per frame
@@ -25,8 +25,8 @@ public class Ground : MonoBehaviour
         
     }
 
-    public GameObject obstaclePrefab1;
-    public GameObject obstaclePrefab2;
+    [SerializeField] GameObject obstaclePrefab1;
+    [SerializeField] GameObject obstaclePrefab2;
     public void SpawnObstacle()
     {
         int randomIndex = Random.Range(2, 5);
@@ -42,7 +42,7 @@ public class Ground : MonoBehaviour
         Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity, transform);
     }
 
-    public GameObject coinPrefab;
+    [SerializeField] GameObject coinPrefab;
     public void SpawnCoin()
     {
         int randomCoinToSpawn = Random.Range(2, 13);

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public float rotationSpeed = 100f;
-    public float floatSpeed = 10f;
+    [SerializeField] float rotationSpeed = 100f;
+    [SerializeField] float floatSpeed = 10f;
 
     private void OnTriggerEnter(Collider other)
     {
