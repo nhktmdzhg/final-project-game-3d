@@ -6,7 +6,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5;
+<<<<<<< HEAD
     [SerializeField] Rigidbody rb;
+=======
+    private readonly float horizontalSpeed = 5;
+    public Rigidbody rb;
+>>>>>>> 7e4657a0207de7de8ceca7969d6315954c81556a
     float inputHorizontal;
     private bool alive = true;
     private Animator anim;
@@ -26,8 +31,8 @@ public class PlayerController : MonoBehaviour
         }
         inputHorizontal = Input.GetAxis("Horizontal");
         Vector3 oldPos = rb.position;
-        Vector3 moveAhead = transform.forward * speed * Time.fixedDeltaTime;
-        Vector3 horizontalMove = transform.right * inputHorizontal * speed * Time.fixedDeltaTime * 2;
+        Vector3 moveAhead = speed * Time.deltaTime * transform.forward;
+        Vector3 horizontalMove = 2 * inputHorizontal * horizontalSpeed * Time.deltaTime * transform.right;
         Vector3 newPos = rb.position + moveAhead + horizontalMove;
         if (newPos.x <= -4.5 || newPos.x >= 4.5)
         {
