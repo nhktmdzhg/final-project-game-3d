@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private float lastJumpTime = 0f;
     public Rigidbody rb;
     float inputHorizontal;
-    private bool alive = true;
+    public bool alive = true;
     private Animator anim;
     public float speedIncreasePerPoint = 0.1f;
     [SerializeField] LayerMask groundMask;
