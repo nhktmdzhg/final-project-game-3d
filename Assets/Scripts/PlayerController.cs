@@ -2,14 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5;
     public Rigidbody rb;
     float inputHorizontal;
+    private bool alive = true;
+    private Animator anim;
 
-    private void FixedUpdate()
+    private void Start()
     {
+        anim = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if (!alive)
+        {
+            anim.SetBool("isDead", true);
+            return;
+        }
+        inputHorizontal = Input.GetAxis("Horizontal");
         Vector3 oldPos = rb.position;
         Vector3 moveAhead = transform.forward * speed * Time.fixedDeltaTime;
         Vector3 horizontalMove = transform.right * inputHorizontal * speed * Time.fixedDeltaTime * 2;
@@ -21,8 +35,13 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(newPos);
     }
 
-    private void Update()
+    public void Dead()
     {
-        inputHorizontal = Input.GetAxis("Horizontal");
+        alive = false;
+    }
+
+    public void Alive()
+    {
+        alive = true;
     }
 }
