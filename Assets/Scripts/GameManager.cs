@@ -37,9 +37,14 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
-        gameOverUI.gameObject.SetActive(true);    // Use SetActive
-        //Time.timeScale = 0f;          // Pause game
+        StartCoroutine(DelayedGameOver());
         Debug.Log("Game Over! Final Score: " + coin);
+    }
+
+    private IEnumerator DelayedGameOver()
+    {
+        yield return new WaitForSeconds(1f);
+        gameOverUI.gameObject.SetActive(true);
     }
     // Start is called before the first frame update
     void Start()

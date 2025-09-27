@@ -12,8 +12,8 @@ public class BackButton : MonoBehaviour
     }
     public void BackGame()
     {
-        //Time.timeScale = 1f; // Reset time scale in case it was paused
-        SceneManager.LoadScene(0);
+        Time.timeScale = 1f; // Reset time scale in case it was paused
+        SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
     }
     // Update is called once per frame
     void Update()
