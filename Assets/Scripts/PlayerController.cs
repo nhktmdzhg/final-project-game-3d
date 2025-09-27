@@ -10,9 +10,15 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Vector3 oldPos = rb.position;
         Vector3 moveAhead = transform.forward * speed * Time.fixedDeltaTime;
         Vector3 horizontalMove = transform.right * inputHorizontal * speed * Time.fixedDeltaTime * 2;
-        rb.MovePosition(rb.position + moveAhead + horizontalMove);
+        Vector3 newPos = rb.position + moveAhead + horizontalMove;
+        if (newPos.x <= -4.5 || newPos.x >= 4.5)
+        {
+            newPos.x = oldPos.x;
+        }
+        rb.MovePosition(newPos);
     }
 
     private void Update()
