@@ -24,7 +24,7 @@ public class GroundController : MonoBehaviour
     {
         for (int i = 0; i < 20; i++)
         {
-            if (i < 5)
+            if (i < 1)
             {
                 SpawnGround(false);
             }

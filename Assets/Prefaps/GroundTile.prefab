@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6769818060627348340}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObstacleMid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 372132455046752334}
   - component: {fileID: 5555233412394980198}
   - component: {fileID: 6589741729810252488}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5808008599521240674}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObstacleLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6013692754382688435}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObstacleRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 468847445277722558}
   - component: {fileID: 890054723488878246}
   - component: {fileID: 458719153124258000}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5480588190496772192}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}

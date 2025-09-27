@@ -1,30 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5;
-    [SerializeField] Rigidbody rb;
     private readonly float horizontalSpeed = 5;
+    [SerializeField] float jumpForce = 310f;
+    [SerializeField] float jumpCooldown = 0.2f;
+    private float lastJumpTime = 0f;
+    public Rigidbody rb;
     float inputHorizontal;
     private bool alive = true;
     private Animator anim;
-    public float speedIncreasePerPoint = 0.02f;
+    public float speedIncreasePerPoint = 0.1f;
+    [SerializeField] LayerMask groundMask;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!alive)
         {
             anim.SetBool("isDead", true);
             return;
         }
+
         inputHorizontal = Input.GetAxis("Horizontal");
         Vector3 oldPos = rb.position;
         Vector3 moveAhead = speed * Time.deltaTime * transform.forward;
@@ -35,15 +38,33 @@ public class PlayerController : MonoBehaviour
             newPos.x = oldPos.x;
         }
         rb.MovePosition(newPos);
+
+        if (Input.GetKeyDown(KeyCode.Space) && CanJump())
+        {
+            Jump();
+        }
+        speed += 0.001f;
     }
 
     public void Dead()
     {
-        alive = false;        
+        alive = false;
     }
 
-    public void Alive()
+    private bool IsGrounded()
     {
-        alive = true;
+        float height = GetComponentInChildren<CapsuleCollider>().bounds.size.y;
+        return Physics.Raycast(transform.position, Vector3.down, (height / 2) + 0.001f, groundMask);
+    }
+
+    private bool CanJump()
+    {
+        return IsGrounded() && (Time.time - lastJumpTime > jumpCooldown);
+    }
+
+    private void Jump()
+    {
+        lastJumpTime = Time.time;
+        rb.AddForce(Vector3.up * jumpForce);
     }
 }

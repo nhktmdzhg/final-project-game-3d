@@ -1194,9 +1194,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9684080011a104c919e71268f3489877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 5
+  jumpForce: 310
+  jumpCooldown: 0.2
   rb: {fileID: 1939487717}
-  speedIncreasePerPoint: 0.02
+  speedIncreasePerPoint: 0.1
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &1939487721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5dd9d1fdddbd10552b2c13f6a6cd87a1, type: 3}
