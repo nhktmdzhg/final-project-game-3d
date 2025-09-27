@@ -6,12 +6,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5;
-<<<<<<< HEAD
     [SerializeField] Rigidbody rb;
-=======
     private readonly float horizontalSpeed = 5;
-    public Rigidbody rb;
->>>>>>> 7e4657a0207de7de8ceca7969d6315954c81556a
     float inputHorizontal;
     private bool alive = true;
     private Animator anim;
